@@ -3,14 +3,14 @@ const {
     Circle, Triangle, Square
 } = require("./lib/shape")
 
-const fs= require("fs");
+const fs = require("fs");
 const { error, Console } = require("console");
 inquirer.prompt([
     {
         type: "list",
-        name: "Shape",
+        name: "shape",
         message: "What shape would you like?",
-        choices: ["Circle","Square","Triangle"]
+        choices: ["Circle", "Square", "Triangle"]
     },
     {
         type: "input",
@@ -19,7 +19,7 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "Text",
+        name: "text",
         message: "what text do you want to type",
     },
     {
@@ -27,7 +27,7 @@ inquirer.prompt([
         name: "textcolor",
         message: "what textcolor do you want your shape to be",
     }
-    
+
 ]);
 
 /*
@@ -39,22 +39,35 @@ inquirer.prompt([
 });
 */
 // Create a function to write svg file
-function writeToFile(data) {
-    console.log(data)
-    const readTemplate = (Circle,Square,Triangle)(data)
-    console.log(data)
-    fs.writeFile("./lib/logo.svg",readTemplate,(err)=>{
-        if (err) {
-            console.log (error)
-        }
-        console.log ("success")
-    })
+function writeToFile(data)
+let svg = "";
+switch (data.shape) {
+    case "Circle":
+        svg = new Circle(data.textcolor, data.text, data.color).render();
+        break;
+    case "Triangle":
+        svg = new Triangle(data.textcolor, data.text, data.color).render();
+        break;
+    case "Square":
+        svg = new Square(data.textcolor, data.text, data.color).render();
+        break;
 }
+
+console.log(data)
+const readTemplate = (Circle, Triangle, Square)(data)
+console.log(data)
+fs.writeFile("./lib/logo.svg", readTemplate, (err) => {
+    if (err) {
+        console.log(error)
+    }
+    console.log("success")
+})
+
 // creating a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then((answers)=>{
-        Console.log(answers)
-        writeToFile(answers)
-    })
-    }
+        .then((answers) => {
+            Console.log(answers)
+            writeToFile(answers)
+        })
+}
