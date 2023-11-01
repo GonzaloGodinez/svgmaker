@@ -3,7 +3,8 @@ const {
     Circle, Triangle, Square
 } = require("./lib/shape")
 
-const fs= require("fs")
+const fs= require("fs");
+const { error, Console } = require("console");
 inquirer.prompt([
     {
         type: "list",
@@ -27,11 +28,33 @@ inquirer.prompt([
         message: "what textcolor do you want your shape to be",
     }
     
-])
+]);
+
+/*
 .then((response) => {
     fs.appendFile('message.txt', `${response}\n`, (err) =>
     {
         console.log(err)
     })
 });
-
+*/
+// Create a function to write svg file
+function writeToFile(data) {
+    console.log(data)
+    const readTemplate = (Circle,Square,Triangle)(data)
+    console.log(data)
+    fs.writeFile("./lib/logo.svg",readTemplate,(err)=>{
+        if (err) {
+            console.log (error)
+        }
+        console.log ("success")
+    })
+}
+// creating a function to initialize app
+function init() {
+    inquirer.prompt(questions)
+    .then((answers)=>{
+        Console.log(answers)
+        writeToFile(answers)
+    })
+    }
