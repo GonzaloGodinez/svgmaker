@@ -1,10 +1,11 @@
 # svgmaker
+## link to a Repo
+[link to GGL repository](https://github.com/GonzaloGodinez/svgmaker)
 ## link to a Walkthrough Video
-![Static Badge](https://img.shields.io/badge/license-MIT-blue)
-
+[link to a Walkthrough Video](https://watch.screencastify.com/v/PWZsD3OnstodwgKQ44ib)
 
 ## Description
-This application will allow you to create an svgmaker for a new project, allowing to change shape, color and text color creating a logo of your choice, saving it as an svg file
+This application will allow you to create an svgmaker for a new project, allowing to change shape, color and text color creating a logo of your choice, saving it as an svg file, testing square shape functionality is included.
 The app was developed using JS calls to objects "OO" programing at the command line to generate our file. 
 
 ## Table of Contents
@@ -14,7 +15,12 @@ The app was developed using JS calls to objects "OO" programing at the command l
 - [License](#license)
 
 ## Installation
-1.	GUI bash terminal point using CD into project directory.2.	Git clone this repo.3.	CD into svgmaker.	Open using text editor, for VS Code, at the command line type run npm i then 'node index.js'
+1.	GUI bash terminal point using CD into project directory.
+2.	Git clone this repo.
+3.	CD into svgmaker.	
+4.	Open using text editor, for VS Code, 
+5.	At the command line type run npm i 
+6.	Then at the command line type 'node index.js'
 
 ## Usage
 Generates a dynamic logo image.
@@ -42,10 +48,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ---
-
-
-## Questions
-
-- [For any questions, please Contact me @](#Github, #Email)
-- Github:gonzalogodinez.github.io
-- Email:Gonzalo.Godinez@comcast.net 
