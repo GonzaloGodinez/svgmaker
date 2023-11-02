@@ -28,46 +28,39 @@ inquirer.prompt([
         message: "what textcolor do you want your shape to be",
     }
 
-]);
+])
 
-/*
-.then((response) => {
-    fs.appendFile('message.txt', `${response}\n`, (err) =>
-    {
-        console.log(err)
-    })
-});
-*/
+    .then((response) => {
+        console.log(response)
+         writeToFile(response) 
+    });
 // Create a function to write svg file
-function writeToFile(data)
-let svg = "";
-switch (data.shape) {
-    case "Circle":
-        svg = new Circle(data.textcolor, data.text, data.color).render();
-        break;
-    case "Triangle":
-        svg = new Triangle(data.textcolor, data.text, data.color).render();
-        break;
-    case "Square":
-        svg = new Square(data.textcolor, data.text, data.color).render();
-        break;
-}
 
-console.log(data)
-const readTemplate = (Circle, Triangle, Square)(data)
-console.log(data)
-fs.writeFile("./lib/logo.svg", readTemplate, (err) => {
-    if (err) {
-        console.log(error)
+function writeToFile(data) {
+    console.log(data)
+    let svg = "";
+    switch (data.shape) {
+        case "Circle":
+            svg = new Circle(data.textcolor, data.text, data.color).render();
+            console.log("Circle is Choosen");
+            break;
+        case "Triangle":
+            svg = new Triangle(data.textcolor, data.text, data.color).render();
+            console.log("Triangle is Choosen");
+            break;
+        case "Square":
+            svg = new Square(data.textcolor, data.text, data.color).render();
+            console.log("Square is Choosen");
+            break;
     }
-    console.log("success")
-})
 
-// creating a function to initialize app
-function init() {
-    inquirer.prompt(questions)
-        .then((answers) => {
-            Console.log(answers)
-            writeToFile(answers)
-        })
+    console.log(data)
+    fs.writeFile("./lib/logo.svg", svg, (err) => {
+        if (err) {
+            console.log(error)
+        }
+        console.log("success Generated logo.svg")
+    })
 }
+// creating a function to initialize app
+
